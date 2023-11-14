@@ -5,6 +5,7 @@ import servicio.AlquilerServicio;
 import servicio.AlquilerServicioImpl;
 import util.ConexionBBDD;
 import vista.VentanaPrincipal;
+import vista.VentanaTabla;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -25,20 +26,30 @@ public class Controlador {
         v.setVisible(true);
     }
 
+    public List<Alquiler> getAlquileres() {
+        return alquileres;
+    }
+
     public void consultaDatos() {
         try {
             alquilerServicio = new AlquilerServicioImpl(this.conn);
             this.alquileres = alquilerServicio.obtenerAlquileres(this.v.getFechaInicial(), this.v.getFechaFinal());
+            mostrarDatos();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,"Problemas al conseguir los datos",
                     "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        mostrarDatos();
+
     }
 
     public void mostrarDatos() {
-        System.out.println("=======ALQUILERES=======");
-        this.alquileres.forEach(System.out::println);
+         if (this.alquileres.isEmpty()) {
+             JOptionPane.showMessageDialog(null,"No hay datos que cumplan los requisotos de busqueda",
+                     "NO HAY DATOS", JOptionPane.INFORMATION_MESSAGE);
+         } else {
+             VentanaTabla ventanaTabla = new VentanaTabla(this);
+             ventanaTabla.setVisible(true);
+         }
     }
     public void salir() {
         try {

@@ -59,8 +59,8 @@ public class Alquiler {
         this.vivienda = vivienda;
     }
 
-    public Boolean getEstaCobrado() {
-        return estaCobrado;
+    public String getEstaCobrado() {
+        return (estaCobrado)?"SÍ":"NO";
     }
 
     public void setEstaCobrado(Boolean estaCobrado) {

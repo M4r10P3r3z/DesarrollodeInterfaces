@@ -16,7 +16,6 @@ public class VentanaPrincipal extends JFrame {
     private JButton bConsulta;
     private JButton bSalir;
     private JPanel panelSelectorFechas;
-    private JTable tbResultado;
     private final JrangoFechas jrangoFechas;
     private LocalDate fechaInicial;
     private LocalDate fechaFinal;
@@ -26,7 +25,7 @@ public class VentanaPrincipal extends JFrame {
         setContentPane(panelMainPanel);
         setTitle("SmartOcupation App");
         pack();
-        setSize(600,300);
+        setSize(600,200);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         jrangoFechas = new JrangoFechas();
