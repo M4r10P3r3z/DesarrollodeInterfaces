@@ -12,11 +12,6 @@ public class Cliente {
         this.direccion = direccion;
         this.datosFacturacion = datosFacturacion;
     }
-
-    public Long getId() {
-        return id;
-    }
-
     @Override
     public String toString() {
         return "Cliente (" + id + ", " + nombre + ", " + direccion + ", " + datosFacturacion + ")";

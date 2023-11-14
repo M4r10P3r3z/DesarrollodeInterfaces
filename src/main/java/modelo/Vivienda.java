@@ -17,11 +17,6 @@ public class Vivienda {
         this.numeroBanos = numeroBanos;
         this.precioAlquilerMensual = precioAlquilerMensual;
     }
-
-    public Long getId() {
-        return id;
-    }
-
     @Override
     public String toString() {
         return "Vivienda(" + id + ", " + ubicacion + ", " + superficie + ", " + numeroHabitaciones +

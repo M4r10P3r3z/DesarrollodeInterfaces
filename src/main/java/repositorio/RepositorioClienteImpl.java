@@ -3,33 +3,27 @@ package repositorio;
 import modelo.Cliente;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class RepositorioClienteImpl implements Repositorio<Cliente> {
-
     private final Connection conn;
 
     public RepositorioClienteImpl(Connection conn) {
         this.conn = conn;
     }
     @Override
-    public List<Cliente> obtenerDatos() throws SQLException {
-        List<Cliente> clientes = new ArrayList<>();
-        String sql = "select * from clientes";
-        try (Statement stm = conn.createStatement()) {
-            try (ResultSet rs = stm.executeQuery(sql)) {
+    public Cliente porId(Long id) throws SQLException {
+        Cliente cliente = null;
+        try (PreparedStatement stm = conn.prepareStatement("select * from clientes where id=?")) {
+            stm.setLong(1, id);
+            try (ResultSet rs = stm.executeQuery()) {
                 while (rs.next()) {
-                    Long id = rs.getLong(1);
                     String nombre = rs.getString(2);
                     String direccion = rs.getString(3);
                     String datosFacturacion = rs.getString(4);
-                    Cliente cliente = new Cliente(id, nombre, direccion, datosFacturacion);
-                    clientes.add(cliente);
+                    cliente = new Cliente(id, nombre, direccion, datosFacturacion);
                 }
             }
         }
-    return clientes;
+    return cliente;
     }
 }

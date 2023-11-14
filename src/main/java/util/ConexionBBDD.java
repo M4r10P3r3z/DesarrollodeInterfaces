@@ -13,7 +13,6 @@ public class ConexionBBDD {
                 "jdbc:postgresql://localhost:5432/Interfaces",
                 "postgres", "1234");
     }
-
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         if (connection == null) {
             new ConexionBBDD();

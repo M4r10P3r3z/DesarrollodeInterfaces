@@ -18,7 +18,6 @@ public class VentanaPrincipal extends JFrame {
         this.controlador = controlador;
         setContentPane(panelMainPanel);
         setTitle("Proyecto de Servicios y procesos");
-
         pack();
         setSize(400,300);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
