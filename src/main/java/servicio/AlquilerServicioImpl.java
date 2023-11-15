@@ -7,6 +7,7 @@ import repositorio.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class AlquilerServicioImpl implements AlquilerServicio {
@@ -24,8 +25,8 @@ public class AlquilerServicioImpl implements AlquilerServicio {
     }
 
     @Override
-    public List<Alquiler> obtenerAlquileres() throws SQLException {
-        List<Alquiler> alquileres = repoAlquiler.listaAlquileres();
+    public List<Alquiler> obtenerAlquileres(LocalDate fechaInicial, LocalDate fechaFinal) throws SQLException {
+        List<Alquiler> alquileres = repoAlquiler.listaAlquileres(fechaInicial, fechaFinal);
         for (Alquiler a: alquileres) {
             a.setCliente(repoCliente.porId(a.getCliente().getId()));
             a.setVivienda(repoVivienda.porId(a.getVivienda().getId()));

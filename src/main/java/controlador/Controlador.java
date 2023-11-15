@@ -21,20 +21,25 @@ public class Controlador {
     public Controlador() {
         alquileres = new ArrayList<>();
         conectarBBDD();
-        conseguirDatos();
         v = new VentanaPrincipal(this);
+        v.setVisible(true);
     }
 
-    private void conseguirDatos() {
+    public void consultaDatos() {
         try {
             alquilerServicio = new AlquilerServicioImpl(this.conn);
-            this.alquileres = alquilerServicio.obtenerAlquileres();
+            this.alquileres = alquilerServicio.obtenerAlquileres(this.v.getFechaInicial(), this.v.getFechaFinal());
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,"Problemas al conseguir los datos",
                     "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+        mostrarDatos();
     }
 
+    public void mostrarDatos() {
+        System.out.println("=======ALQUILERES=======");
+        this.alquileres.forEach(System.out::println);
+    }
     public void salir() {
         try {
             conn.close();
@@ -45,10 +50,6 @@ public class Controlador {
                     "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         System.exit(0);
-    }
-    public void consultaDatos() {
-        System.out.println("=======ALQUILERES=======");
-        this.alquileres.forEach(System.out::println);
     }
 
     private void conectarBBDD() {

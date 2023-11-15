@@ -4,10 +4,7 @@ import modelo.Alquiler;
 import modelo.Cliente;
 import modelo.Vivienda;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,12 +15,15 @@ public class RepositorioAlquilerImpl implements RepositorioAlquiler {
     public RepositorioAlquilerImpl(Connection conn) {
         this.conn = conn;
     }
+
     @Override
-    public List<Alquiler> listaAlquileres() throws SQLException {
+    public List<Alquiler> listaAlquileres(LocalDate fechaInicial, LocalDate fechaFinal) throws SQLException {
         List<Alquiler> alquileres = new ArrayList<>();
-        String sql = "select * from alquileres";
-        try (Statement stm = conn.createStatement()) {
-            try (ResultSet rs = stm.executeQuery(sql)) {
+        try (PreparedStatement stm = conn
+                .prepareStatement("select * from alquileres where fecha_entrada between ? and ? order by fecha_entrada")) {
+            stm.setDate(1, Date.valueOf(fechaInicial));
+            stm.setDate(2, Date.valueOf(fechaFinal));
+            try (ResultSet rs = stm.executeQuery()) {
                 while (rs.next()) {
                     Long numeroExpediente = rs.getLong(1);
                     LocalDate fechaEntrada = rs.getDate(2).toLocalDate();
@@ -37,6 +37,6 @@ public class RepositorioAlquilerImpl implements RepositorioAlquiler {
                 }
             }
         }
-    return alquileres;
+        return alquileres;
     }
 }
