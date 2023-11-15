@@ -1,7 +1,8 @@
 package controlador;
 
 import modelo.Alquiler;
-import repositorio.*;
+import servicio.AlquilerServicio;
+import servicio.AlquilerServicioImpl;
 import util.ConexionBBDD;
 import vista.VentanaPrincipal;
 
@@ -15,7 +16,7 @@ public class Controlador {
     Connection conn;
     VentanaPrincipal v;
     List<Alquiler> alquileres;
-    RepositorioAlquiler repositorioAlquiler;
+    AlquilerServicio alquilerServicio;
 
     public Controlador() {
         alquileres = new ArrayList<>();
@@ -26,8 +27,8 @@ public class Controlador {
 
     private void conseguirDatos() {
         try {
-            repositorioAlquiler = new RepositorioAlquilerImpl(this.conn);
-            this.alquileres = repositorioAlquiler.obtenerDatos();
+            alquilerServicio = new AlquilerServicioImpl(this.conn);
+            this.alquileres = alquilerServicio.obtenerAlquileres();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,"Problemas al conseguir los datos",
                     "ERROR", JOptionPane.ERROR_MESSAGE);

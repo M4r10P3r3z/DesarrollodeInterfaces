@@ -6,5 +6,5 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface RepositorioAlquiler {
-    List<Alquiler> obtenerDatos() throws SQLException;
+    List<Alquiler> listaAlquileres() throws SQLException;
 }
