@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="65520be3-bf3a-47ba-94ba-dbe192ed147e">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="numeroExpediente" class="java.lang.Long"/>
+	<field name="duracionEstimada" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement stretchType="ContainerHeight" x="180" y="15" width="210" height="50" uuid="2d6f9d44-525a-4a58-aeea-de7ddaa94548">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Informe]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="11" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="110" y="15" width="140" height="30" uuid="847a6968-6cfa-4095-9560-d7e3259e35b4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="936f5017-0924-42d6-bb5a-9c47b3dea215"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Número de Expediente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="384" y="10" width="100" height="30" uuid="06cf58b8-01a3-4bb4-98c4-3bf2999880d5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fd385712-4730-4a5e-ae67-919cc129634d"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Duracion estimada]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="69" splitType="Stretch">
+			<textField>
+				<reportElement x="140" y="30" width="100" height="30" uuid="60c15985-43f5-4cbe-abaa-2b3467c88f2e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="936f5017-0924-42d6-bb5a-9c47b3dea215"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{numeroExpediente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="39" width="100" height="30" uuid="d2146ba5-a2c1-40ab-a926-237492b08728">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fd385712-4730-4a5e-ae67-919cc129634d"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{duracionEstimada}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="8" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -44,7 +44,7 @@ public class Controlador {
 
     public void mostrarDatos() {
          if (this.alquileres.isEmpty()) {
-             JOptionPane.showMessageDialog(null,"No hay datos que cumplan los requisotos de busqueda",
+             JOptionPane.showMessageDialog(null,"No hay datos que cumplan los requisitos de búsqueda",
                      "NO HAY DATOS", JOptionPane.INFORMATION_MESSAGE);
          } else {
              VentanaTabla ventanaTabla = new VentanaTabla(this);
