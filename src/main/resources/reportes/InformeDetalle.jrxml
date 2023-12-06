@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="410" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="65520be3-bf3a-47ba-94ba-dbe192ed147e">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="numeroExpediente" class="java.lang.Long"/>
+	<field name="fechaEntrada" class="java.time.LocalDate"/>
+	<field name="duracionEstimada" class="java.lang.Integer"/>
+	<field name="estaCobrado" class="java.lang.String"/>
+	<field name="cliente" class="modelo.Cliente"/>
+	<field name="vivienda" class="modelo.Vivienda"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="370" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement stretchType="ContainerHeight" x="20" y="12" width="180" height="34" uuid="2d6f9d44-525a-4a58-aeea-de7ddaa94548">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Informe de detalle de alquiler número: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="11" width="90" height="34" uuid="473f1a03-3f7f-4438-9eb8-de976de36288"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha del Informe:]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="400" y="11" width="120" height="34" uuid="26f4ffc0-f868-4f6f-8ac3-d5cc0bbea558"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="20" y="239" width="500" height="119" uuid="bf9f3f1a-6bb4-4839-a841-35fda288b281"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="246" width="120" height="18" uuid="53047d69-b582-4106-96bf-fcc7e5b4e33c"/>
+				<text><![CDATA[Datos de la vivienda:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="246" width="40" height="18" uuid="60db478a-f567-43d5-b622-5617a8362c32"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Id: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="266" width="130" height="20" uuid="854aa006-ca6c-4971-9ced-61799d020f76"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Ubicación:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="286" width="130" height="30" uuid="127cada1-4c15-4755-8a4e-a38f98274b7b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Superficie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="286" width="150" height="30" uuid="8118e2c0-96aa-46e4-9851-6ecc1fd4e198"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Número de Habitaciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="316" width="150" height="30" uuid="d086922f-f233-4ceb-a66d-ed977bd2c9ca"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Número de Baños]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="316" width="130" height="30" uuid="25440b3b-9d21-48cd-93bb-f9c79997f8b4"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Precio del alquiler mensual]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="460" y="246" width="50" height="18" uuid="bf3259f6-0099-4958-8efe-e35ec06c0ba0"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vivienda}.getId()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="264" width="350" height="22" uuid="122ae01d-c2bd-4423-99a4-907b1381c9a0"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vivienda}.getUbicacion()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="286" width="80" height="30" uuid="97030d8f-cf14-4239-abdd-01a66de29b8e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vivienda}.getSuperficie()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="286" width="50" height="30" uuid="bbf815a6-40fb-48ce-93e3-2ab3ce18157d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vivienda}.getNumeroHabitaciones()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="316" width="50" height="30" uuid="27f7651f-2235-4e4b-b72b-4a55906b656f"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vivienda}.getNumeroBanos()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="316" width="80" height="30" uuid="a1492858-3e83-421c-ad39-5ae9f2eb55ed"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vivienda}.getPrecioAlquilerMensual()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="66" width="90" height="30" uuid="0042630f-3514-4386-a84e-e6281e1d6b89"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha de entrada:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="66" width="90" height="30" uuid="2598f88a-892e-4aab-a40a-00433ec75349"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Duración Estimada:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="66" width="70" height="30" uuid="dd296044-4b15-4f7b-af30-55051e0cf5a1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[¿Ya cobrado?    ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="20" y="116" width="500" height="100" uuid="f40e4cfb-df72-440e-bbe8-1058a88a9837"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="126" width="80" height="20" uuid="f818d8bd-d3f9-48f0-b06e-b1f20930496e"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[Datos del Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="126" width="40" height="20" uuid="6951e3bb-15e2-4073-8d53-93561194acbc"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Id: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="146" width="120" height="20" uuid="0412588b-9062-4307-b380-8ef82be7ef1f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="166" width="120" height="20" uuid="585df835-8296-429e-8f81-8cbf3240a770"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Dirección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="186" width="120" height="20" uuid="b6681b4a-2900-459c-a93c-23a17d4b8f2b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Dirección de facturación]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="66" width="60" height="30" uuid="9e130cf5-1c04-4a80-aa4e-2d400c60f223"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fechaEntrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="66" width="30" height="30" uuid="8bfd94e5-c1ea-438c-8961-3c8b552b236f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{duracionEstimada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="66" width="60" height="30" uuid="16a50c83-857a-400e-a444-1c8c36ec4cea"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{estaCobrado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="66" width="40" height="30" uuid="f2cc502f-4e05-46cf-83a5-bf5dc65da691"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[ días]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="460" y="126" width="50" height="20" uuid="359560b9-f59e-405b-8e6a-1e2b6eaca129"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cliente}.getId()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="145" width="360" height="20" uuid="bed06fa7-d4c5-44d3-b4d7-c2f813f073dd"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cliente}.getNombre()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="166" width="360" height="20" uuid="fe534ae1-5950-4abc-b9ea-6d03597692f9"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cliente}.getDireccion()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="186" width="360" height="20" uuid="f803d016-e97f-4a8a-a626-2a7db73c7a91"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cliente}.getDatosFacturacion()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="10" width="90" height="36" uuid="e5da1c23-6b2a-41a7-8c3a-222e1424164c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{numeroExpediente}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
